@@ -26,7 +26,7 @@ namespace FooCore
 		public RecordStorage (IBlockStorage storage)
 		{
 			if (storage == null)
-				throw new ArgumentNullException (nameof(storage));
+				throw new ArgumentNullException ("storage");
 			this.storage = storage;
 		}
 
