@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FooDB", "FooDB\FooDB.csproj", "{8FED3A20-117D-4753-85ED-18C0328B728F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FooTest", "FooTest\FooTest.csproj", "{106DB7B9-30B6-4119-8B83-2D7717652D42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FooCore", "FooCore\FooCore.csproj", "{34BCEC71-B2EA-4724-8D05-F5F7B0964274}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FooApplication", "FooApplication\FooApplication.csproj", "{C644CBC7-B9C3-4096-9768-436817B3A3D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +21,9 @@ Global
 		{34BCEC71-B2EA-4724-8D05-F5F7B0964274}.Debug|x86.Build.0 = Debug|Any CPU
 		{34BCEC71-B2EA-4724-8D05-F5F7B0964274}.Release|x86.ActiveCfg = Release|Any CPU
 		{34BCEC71-B2EA-4724-8D05-F5F7B0964274}.Release|x86.Build.0 = Release|Any CPU
-		{8FED3A20-117D-4753-85ED-18C0328B728F}.Debug|x86.ActiveCfg = Debug|x86
-		{8FED3A20-117D-4753-85ED-18C0328B728F}.Debug|x86.Build.0 = Debug|x86
-		{8FED3A20-117D-4753-85ED-18C0328B728F}.Release|x86.ActiveCfg = Release|x86
-		{8FED3A20-117D-4753-85ED-18C0328B728F}.Release|x86.Build.0 = Release|x86
+		{C644CBC7-B9C3-4096-9768-436817B3A3D9}.Debug|x86.ActiveCfg = Debug|x86
+		{C644CBC7-B9C3-4096-9768-436817B3A3D9}.Debug|x86.Build.0 = Debug|x86
+		{C644CBC7-B9C3-4096-9768-436817B3A3D9}.Release|x86.ActiveCfg = Release|x86
+		{C644CBC7-B9C3-4096-9768-436817B3A3D9}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal

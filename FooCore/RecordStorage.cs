@@ -27,7 +27,12 @@ namespace FooCore
 		{
 			if (storage == null)
 				throw new ArgumentNullException ("storage");
+
 			this.storage = storage;
+
+			if (storage.BlockHeaderSize < 48) {
+				throw new ArgumentException ("Record storage needs at least 48 header bytes");
+			}
 		}
 
 		//
@@ -121,6 +126,8 @@ namespace FooCore
 				IBlock currentBlock = firstBlock;
 				while (dataWritten < dataTobeWritten)
 				{
+					IBlock nextBlock = null;
+
 					using (currentBlock)
 					{
 						// Write as much as possible to this block
@@ -132,7 +139,7 @@ namespace FooCore
 						// If still there are data tobe written,
 						// move to the next block
 						if (dataWritten < dataTobeWritten) {
-							var nextBlock = AllocateBlock ();
+							nextBlock = AllocateBlock ();
 							var success = false;
 							try {
 								nextBlock.SetHeader (kPreviousBlockId, currentBlock.Id);
@@ -141,13 +148,18 @@ namespace FooCore
 							} finally {
 								if ((false == success) && (nextBlock != null)) {
 									nextBlock.Dispose ();
+									nextBlock = null;
 								}
 							}
-							currentBlock = nextBlock;
 						} else {
 							break;
 						}
 					} // Using currentBlock
+
+					// Move to the next block if possible
+					if (nextBlock != null) {
+						currentBlock = nextBlock;
+					}
 				}
 
 				// return id of the first block that got dequeued
@@ -179,6 +191,8 @@ namespace FooCore
 				IBlock currentBlock = block;
 				while (true)
 				{
+					IBlock nextBlock = null;
+
 					using (currentBlock)
 					{
 						MarkAsFree (currentBlock.Id);
@@ -188,12 +202,17 @@ namespace FooCore
 						if (nextBlockId == 0) {
 							break;
 						} else {
-							currentBlock = storage.Find (nextBlockId);
+							nextBlock = storage.Find (nextBlockId);
 							if (currentBlock == null) {
 								throw new InvalidDataException ("Block not found by id: " + nextBlockId);
 							}
 						}
 					}// Using currentBlock
+
+					// Move to next block
+					if (nextBlock != null) {
+						currentBlock = nextBlock;
+					}
 				}
 			}
 		}

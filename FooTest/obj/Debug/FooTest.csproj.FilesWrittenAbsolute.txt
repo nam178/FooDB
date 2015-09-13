@@ -1,8 +1,9 @@
 /Users/nz/Projects/FooDB/FooTest/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/Users/nz/Projects/FooDB/FooTest/bin/Debug/nunit.framework.dll
-/Users/nz/Projects/FooDB/FooTest/bin/Debug/FooCore.dll
-/Users/nz/Projects/FooDB/FooTest/bin/Debug/FooCore.dll.mdb
 /Users/nz/Projects/FooDB/FooTest/bin/Debug/FooTest.dll.mdb
 /Users/nz/Projects/FooDB/FooTest/bin/Debug/FooTest.dll
 /Users/nz/Projects/FooDB/FooTest/obj/Debug/FooTest.dll
 /Users/nz/Projects/FooDB/FooTest/obj/Debug/FooTest.dll.mdb
+/Users/nz/Projects/FooDB/FooTest/bin/Debug/nunit.framework.dll
+/Users/nz/Projects/FooDB/FooTest/bin/Debug/log4net.dll
+/Users/nz/Projects/FooDB/FooTest/bin/Debug/FooCore.dll
+/Users/nz/Projects/FooDB/FooTest/bin/Debug/FooCore.dll.mdb

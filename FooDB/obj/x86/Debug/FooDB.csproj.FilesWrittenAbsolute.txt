@@ -1,5 +1,0 @@
-/Users/nz/Projects/FooDB/FooDB/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/Users/nz/Projects/FooDB/FooDB/bin/Debug/FooDB.exe.mdb
-/Users/nz/Projects/FooDB/FooDB/bin/Debug/FooDB.exe
-/Users/nz/Projects/FooDB/FooDB/obj/x86/Debug/FooDB.exe
-/Users/nz/Projects/FooDB/FooDB/obj/x86/Debug/FooDB.exe.mdb

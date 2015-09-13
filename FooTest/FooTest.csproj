@@ -32,11 +32,19 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlockStorageTest.cs" />
     <Compile Include="UnitTestHelper.cs" />
     <Compile Include="RecordStorageTest.cs" />
+    <Compile Include="BTreeTest.cs" />
+    <Compile Include="BTreeNonUniqueTest.cs" />
+    <Compile Include="BTreeDeletionTest.cs" />
+    <Compile Include="PersistentTreeTest.cs" />
+    <Compile Include="TreeDiskNodeSerializerTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

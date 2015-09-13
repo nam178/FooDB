@@ -6,13 +6,14 @@ namespace FooCore
 {
 	public class Block : IBlock
 	{
-		byte[] firstSector;
+		readonly byte[] firstSector;
+		readonly long?[] cachedHeaderValue = new long?[5];
+		readonly Stream stream;
+		readonly BlockStorage storage;
+		readonly uint id;
+
 		bool isFirstSectorDirty = false;
 		bool isDisposed = false;
-		long?[] cachedHeaderValue = new long?[5];
-		Stream stream;
-		BlockStorage storage;
-		uint id;
 
 		public event EventHandler Disposed;
 

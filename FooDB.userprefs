@@ -1,1 +1,32 @@
-﻿<Properties StartupItem="FooDB/FooDB.csproj" />
+﻿<Properties StartupItem="FooApplication/FooApplication.csproj" RefactoringSettings.EnableRefactorings="True">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FooCore/TreeDiskNodeSerializer.cs">
+    <Files>
+      <File FileName="FooApplication/CowSerializer.cs" Line="11" Column="2" />
+      <File FileName="FooApplication/StringIntSerializer.cs" Line="30" Column="84" />
+      <File FileName="FooCore/TreeDiskNodeSerializer.cs" Line="161" Column="52" />
+      <File FileName="FooCore/TreeDiskNodeManager.cs" Line="56" Column="1" />
+      <File FileName="FooCore/Tree.cs" Line="138" Column="62" />
+    </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="FooDB" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Catchpoint enabled="false" exceptionName="System.Exception" includeSubclasses="True" />
+      <Catchpoint exceptionName="System.Exception" includeSubclasses="True" />
+      <Breakpoint file="/Users/nz/Projects/FooDB/FooApplication/StringIntSerializer.cs" line="26" column="25" />
+      <Breakpoint file="/Users/nz/Projects/FooDB/FooApplication/StringIntSerializer.cs" line="10" column="19" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="FooCore/TreeNode.cs" line="473" offsetX="591" offsetY="7089" expression="leftChild" liveUpdate="False" />
+    <Watch file="FooCore/TreeNode.cs" line="478" offsetX="935" offsetY="7086" expression="rightChild" liveUpdate="False" />
+    <Watch file="FooCore/TreeNode.cs" line="454" offsetX="781" offsetY="7038" expression="parent" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+</Properties>

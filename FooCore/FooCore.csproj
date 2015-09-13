@@ -29,6 +29,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -42,9 +45,29 @@
     <Compile Include="StreamReadWrapper.cs" />
     <Compile Include="RecordStorage.cs" />
     <Compile Include="IRecordStorage.cs" />
+    <Compile Include="ITreeNodeManager.cs" />
+    <Compile Include="Tree.cs" />
+    <Compile Include="TreeEnumerator.cs" />
+    <Compile Include="TreeHelper.cs" />
+    <Compile Include="TreeMemoryNodeManager.cs" />
+    <Compile Include="TreeNode.cs" />
+    <Compile Include="TreeTraverseDirection.cs" />
+    <Compile Include="TreeTraverser.cs" />
+    <Compile Include="TreeDiskNodeManager.cs" />
+    <Compile Include="TreeNodeSerializationException.cs" />
+    <Compile Include="TreeDiskNodeSerializer.cs" />
+    <Compile Include="ISerializer.cs" />
+    <Compile Include="TreeKeyExistsException.cs" />
+    <Compile Include="TreeIntSerializer.cs" />
+    <Compile Include="TreeLongSerializer.cs" />
+    <Compile Include="TreeStringSerialzier.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="FooCore.Lib\" />
+    <Folder Include="Tree\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

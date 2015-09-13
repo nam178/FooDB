@@ -9,7 +9,7 @@ namespace FooCore
 	/// </summary>
 	public class StreamReadWrapper : Stream
 	{
-		Stream _parent;
+		readonly Stream _parent;
 		long _readLimit;
 		long _position = 0;
 
