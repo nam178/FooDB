@@ -236,7 +236,7 @@ namespace UnitTest
 				ms.Write (LittleEndianByteOrder.GetBytes(33L), 0, 8);
 				ms.Write (LittleEndianByteOrder.GetBytes(44L), 0, 8);
 
-				var firstSector = new byte[BlockStorage.DiskSectorSize];
+				var firstSector = new byte[storage.DiskSectorSize];
 				ms.Position = ms.Position - 4*8;
 				ms.Read (firstSector);
 				using (var block = new Block (storage, 22, firstSector, ms))
@@ -278,7 +278,7 @@ namespace UnitTest
 			{
 				// Construct block for testing
 				var storage = new BlockStorage (new MemoryStream());
-				var firstSector = new byte[BlockStorage.DiskSectorSize];
+				var firstSector = new byte[storage.DiskSectorSize];
 				ms.Position = storage.BlockSize * 3;
 				ms.Read (firstSector);
 				using (var block = new Block (storage, 3, firstSector, ms))
@@ -381,7 +381,7 @@ namespace UnitTest
 
 				// Block to test
 				// Read first sector first to construct block to test
-				var firstSector = new byte[BlockStorage.DiskSectorSize];
+				var firstSector = new byte[storage.DiskSectorSize];
 				ms.Position = storage.BlockSize * 3;
 				ms.Read (firstSector);
 				using (var block = new Block (storage, 3, firstSector, ms))
@@ -395,14 +395,14 @@ namespace UnitTest
 					result =new byte[1024];
 					block.Read (result
 						, 64
-						, BlockStorage.DiskSectorSize-storage.BlockHeaderSize
+						, storage.DiskSectorSize-storage.BlockHeaderSize
 						, 1024-64);
 					var result2 = new byte[1024-64];
 					Buffer.BlockCopy (result, 64, result2, 0, result2.Length);
 
 					var expectedResult2 = new byte[1024-64];
 					Buffer.BlockCopy (body
-						, BlockStorage.DiskSectorSize-storage.BlockHeaderSize
+						, storage.DiskSectorSize-storage.BlockHeaderSize
 						, expectedResult2
 						, 0
 						, expectedResult2.Length);

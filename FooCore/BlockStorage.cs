@@ -10,9 +10,14 @@ namespace FooCore
 		readonly int blockSize;
 		readonly int blockHeaderSize;
 		readonly int blockContentSize;
+		readonly int unitOfWork;
 		readonly Dictionary<uint, Block> blocks = new Dictionary<uint, Block> ();
 
-		public const int DiskSectorSize = 4096;
+		public int DiskSectorSize {
+			get {
+				return unitOfWork;
+			}
+		}
 
 		public int BlockSize {
 			get {
@@ -47,6 +52,11 @@ namespace FooCore
 					"to " + "blockSize");
 			}
 
+			if (blockSize < 128) {
+				throw new ArgumentException ("blockSize too small");
+			}
+
+			this.unitOfWork = ((blockSize >= 4096) ? 4096 : 128);
 			this.blockSize = blockSize;
 			this.blockHeaderSize = blockHeaderSize;
 			this.blockContentSize = blockSize - blockHeaderSize;

@@ -40,6 +40,7 @@
     <Compile Include="CowSerializer.cs" />
     <Compile Include="GuidSerializer.cs" />
     <Compile Include="StringIntSerializer.cs" />
+    <Compile Include="ICowDatabase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

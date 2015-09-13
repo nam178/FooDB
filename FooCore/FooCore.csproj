@@ -61,6 +61,7 @@
     <Compile Include="TreeIntSerializer.cs" />
     <Compile Include="TreeLongSerializer.cs" />
     <Compile Include="TreeStringSerialzier.cs" />
+    <Compile Include="IIndex.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

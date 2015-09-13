@@ -35,8 +35,8 @@ namespace FooCore
 			if (firstSector == null)
 				throw new ArgumentNullException ("firstSector");
 
-			if (firstSector.Length != BlockStorage.DiskSectorSize)
-				throw new ArgumentException ("firstSector length must be " + BlockStorage.DiskSectorSize);
+			if (firstSector.Length != storage.DiskSectorSize)
+				throw new ArgumentException ("firstSector length must be " + storage.DiskSectorSize);
 
 			this.storage = storage;
 			this.id = id;
@@ -115,10 +115,10 @@ namespace FooCore
 			// If part of remain data belongs to the firstSector buffer
 			// then copy from the firstSector first
 			var dataCopied = 0;
-			var copyFromFirstSector = (storage.BlockHeaderSize + srcOffset) < BlockStorage.DiskSectorSize;
+			var copyFromFirstSector = (storage.BlockHeaderSize + srcOffset) < storage.DiskSectorSize;
 			if (copyFromFirstSector)
 			{
-				var tobeCopied = Math.Min(BlockStorage.DiskSectorSize -storage.BlockHeaderSize -srcOffset, count);
+				var tobeCopied = Math.Min(storage.DiskSectorSize -storage.BlockHeaderSize -srcOffset, count);
 
 				Buffer.BlockCopy (src: firstSector
 					, srcOffset: storage.BlockHeaderSize +srcOffset
@@ -133,7 +133,7 @@ namespace FooCore
 			// if there is still some data tobe copied
 			if (dataCopied < count) {
 				if (copyFromFirstSector) {
-					stream.Position = (Id * storage.BlockSize) + BlockStorage.DiskSectorSize ;
+					stream.Position = (Id * storage.BlockSize) + storage.DiskSectorSize ;
 				} else {
 					stream.Position = (Id * storage.BlockSize) + storage.BlockHeaderSize + srcOffset;
 				}
@@ -142,7 +142,7 @@ namespace FooCore
 			// Start copying until all data required is copied
 			while (dataCopied < count)
 			{
-				var bytesToRead = Math.Min (BlockStorage.DiskSectorSize, count -dataCopied);
+				var bytesToRead = Math.Min (storage.DiskSectorSize, count -dataCopied);
 				var thisRead = stream.Read (dest, destOffset + dataCopied, bytesToRead);
 				if (thisRead == 0) {
 					throw new EndOfStreamException ();
@@ -169,8 +169,8 @@ namespace FooCore
 			}
 
 			// Write bytes that belong to the firstSector
-			if ((storage.BlockHeaderSize + dstOffset) < BlockStorage.DiskSectorSize) {
-				var thisWrite = Math.Min (count, BlockStorage.DiskSectorSize -storage.BlockHeaderSize -dstOffset);
+			if ((storage.BlockHeaderSize + dstOffset) < storage.DiskSectorSize) {
+				var thisWrite = Math.Min (count, storage.DiskSectorSize -storage.BlockHeaderSize -dstOffset);
 				Buffer.BlockCopy (src: src
 					, srcOffset: srcOffset
 					, dst: firstSector
@@ -180,14 +180,14 @@ namespace FooCore
 			}
 
 			// Write bytes that do not belong to the firstSector
-			if ((storage.BlockHeaderSize + dstOffset + count) > BlockStorage.DiskSectorSize)
+			if ((storage.BlockHeaderSize + dstOffset + count) > storage.DiskSectorSize)
 			{
 				// Move underlying stream to correct position ready for writting
 				this.stream.Position = (Id * storage.BlockSize) 
-					+ Math.Max (BlockStorage.DiskSectorSize, storage.BlockHeaderSize + dstOffset);
+					+ Math.Max (storage.DiskSectorSize, storage.BlockHeaderSize + dstOffset);
 
 				// Exclude bytes that have been written to the first sector
-				var d = BlockStorage.DiskSectorSize -(storage.BlockHeaderSize + dstOffset);
+				var d = storage.DiskSectorSize -(storage.BlockHeaderSize + dstOffset);
 				if (d > 0) {
 					dstOffset += d;
 					srcOffset += d;

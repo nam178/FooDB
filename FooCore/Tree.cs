@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace FooCore
 {
-	public class Tree<K, V>
+	public class Tree<K, V> : IIndex<K, V>
 	{
 		readonly ITreeNodeManager<K, V> nodeManager;
 		readonly bool allowDuplicateKeys;

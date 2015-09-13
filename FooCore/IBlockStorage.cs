@@ -19,7 +19,7 @@ namespace FooCore
 		}
 
 		/// <summary>
-		/// Total block size, equal to content size + header size, should be a multiple of 4KB
+		/// Total block size, equal to content size + header size, should be a multiple of 128B
 		/// </summary>
 		int BlockSize {
 			get;
